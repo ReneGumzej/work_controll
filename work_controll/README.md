@@ -25,3 +25,9 @@ Datenbank einrichten:
 - mit db.create_all() alle in vs code erstellten Datenbanken erstellen
 - mit "from work_controll.db import [Tabelle1], [Tabelle2], .." Tabellen in Datenbank importieren
 - bsp.: department1 = Department(department='admin')
+
+Microsoft SQL:
+Servername = 250RG-IT0188\SQLEXPRESS
+
+Notizen: 
+- darauf achten, dass bei view´s (routes.py) die ohne ein Log in nicht aufgerufen werden sollen/dürfen ein decorator "@login_required" gesetzt wird.

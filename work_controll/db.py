@@ -1,5 +1,5 @@
 from work_controll import db
-from enum import unique
+
 
 class Department(db.Model):
     id = db.Column(db.Integer, primary_key=True)
