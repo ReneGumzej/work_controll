@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="register-content">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Mitarbeiter Registrieren</legend>
+            <div class="register-group">
+                <div>
+                    <!--Die Bezeichnung für das Eingabefeld-->
+                    {{ form.username.label(class="form-control-label") }}
+                    <!--Das Eingabefeld-->
+                    {{ form.username(class="form-control form-control-lg") }}
+                </div>
+                <div>
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control form-control-lg") }}
+                </div>
+                <div>
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control form-control-lg") }}
+                </div>
+                <div>
+                    {{ form.confirm_password.label(class="form-control-label") }}
+                    {{ form.confirm_password(class="form-control form-control-lg") }}
+                </div>
+                <div>
+                    {{ form.dep.label(class="form-control-dropdown") }}
+                    {{ form.dep(class="form-select form-select-lg") }}
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group-submit">
+            <button class="submit-btn">{{ form.submit(class="btn btn-lg") }}</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

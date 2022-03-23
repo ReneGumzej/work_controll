@@ -1,0 +1,62 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.navbar { 
+    background: #f36421;
+    margin:auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-list { 
+
+    align-items: center;
+    margin-left: 35%;
+    width: 30%;
+}
+
+.nav a{
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+.nav{
+    display: flex;
+    justify-content:space-around;
+}
+
+.logo{
+    align-items: center;
+}
+
+.register-content {
+    align-items: center;
+    margin-top: 7%;
+    margin-left: 40%;
+    width: 20%;
+}
+
+.login-content {
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 40%;
+    width: 20%;
+}
+
+.reset-password-content{
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 40%;
+    width: 20%;
+}
+.form-group-submit{
+    margin-top:20px;
+}
+
+button.submit-btn{
+    border: none;
+    background-color: #f36421;
+    cursor: pointer;
+    border-radius: 5px;
+}

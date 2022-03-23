@@ -1,0 +1,107 @@
+<div class="navbar">
+    <div class="nav-list">
+        <ul class="nav">
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('status') }}">Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('register') }}">Registrieren</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('adminlogin') }}">Admin</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+
+<li class="nav-item">
+    <a class="nav-link" href="{{ url_for('adminlogin') }}">Admin</a>
+</li>
+
+
+<div class="form-group">
+    {{ form.username.label(class="form-control-label") }}
+    {% if form.username.errors %}
+    {{ form.username(class="form-control form-control-lg is-invalid") }}
+    <div class="invalid-feedback">
+        {% for error in form.username.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% else %}
+    {{ form.username(class="form-control form-control-lg") }}
+    {% endif %}
+</div>
+<div class="form-group">
+    {{ form.email.label(class="form-control-label") }}
+    {% if form.email.errors %}
+    {{ form.email(class="form-control form-control-lg is-invalid") }}
+    <div class="invalid-feedback">
+        {% for error in form.email.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% else %}
+    {{ form.email(class="form-control form-control-lg") }}
+    {% endif %}
+</div>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle">Abteilung
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            {% for choice in form.DEP_CHOISES %}
+            <li><a href="#">CC-Technical</a></li>
+            <li><a href="#">CC-Commercial</a></li>
+            <li><a href="#">Devel-Soft</a></li>
+            {% endfor %}
+        </ul>
+    </button>
+</div>
+<div class="form-group">
+    {{ form.password.label(class="form-control-label") }}
+    {% if form.password.errors %}
+    {{ form.password(class="form-control form-control-lg is-invalid") }}
+    <div class="invalid-feedback">
+        {% for error in form.password.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% else %}
+    {{ form.password(class="form-control form-control-lg") }}
+    {% endif %}
+</div>
+<div class="form-group">
+    {{ form.password.label(class="form-control-label") }}
+    {% if form.password.errors %}
+    {{ form.password(class="form-control form-control-lg is-invalid") }}
+    <div class="invalid-feedback">
+        {% for error in form.password.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% else %}
+    {{ form.password(class="form-control form-control-lg") }}
+    {% endif %}
+</div>
+
+<li class="nav-item-home">
+    <a class="nav-link" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='logo_espera_navi.png') }}" width="200" height="37" alt="">
+    </a>
+</li>
