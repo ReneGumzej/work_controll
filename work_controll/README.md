@@ -23,7 +23,7 @@ Datenbank einrichten:
 - in dem Ordner der App(work_controll) im Terminal/CMD python aufrufen mit C:\Users\gumzej\AppData\Local\Programs\Python\Python310 
 - Datenbank importieren mit "from [App Ordner] import db (db ist eine Instanz der SQLAlchemy Datenbank)
 - mit db.create_all() alle in vs code erstellten Datenbanken erstellen
-- mit "from work_controll.db import [Tabelle1], [Tabelle2], .." Tabellen in Datenbank importieren
+- mit "from work_controll.models import [Tabelle1], [Tabelle2], .." Tabellen in Datenbank importieren
 - bsp.: department1 = Department(department='admin')
 
 Microsoft SQL:

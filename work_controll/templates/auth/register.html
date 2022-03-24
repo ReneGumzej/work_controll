@@ -5,35 +5,34 @@
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Mitarbeiter Registrieren</legend>
-            <div class="register">
-                <label for="InputUsername" class="form-label">Benutzername</label>
-                <input type="text" class="form-control" id="InputUsername">
+            <div class="register-group">
+                <div>
+                    <!--Die Bezeichnung für das Eingabefeld-->
+                    {{ form.username.label(class="form-control-label") }}
+                    <!--Das Eingabefeld-->
+                    {{ form.username(class="form-control form-control-lg") }}
+                </div>
+                <div>
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control form-control-lg") }}
+                </div>
+                <div>
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control form-control-lg") }}
+                </div>
+                <div>
+                    {{ form.confirm_password.label(class="form-control-label") }}
+                    {{ form.confirm_password(class="form-control form-control-lg") }}
+                </div>
+                <div>
+                    {{ form.dep.label(class="form-control-dropdown") }}
+                    {{ form.dep(class="form-select form-select-lg") }}
+                </div>
             </div>
-            <div class="register">
-                <label for="InputEmail" class="form-label">Email Addresse</label>
-                <input type="email" class="form-control" id="InputEmail">
-            </div>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">CC-Technical</a></li>
-                    <li><a class="dropdown-item" href="#">CC-Commercial</a></li>
-                    <li><a class="dropdown-item" href="#">Devel-Soft</a></li>
-                </ul>
-            </div>
-            <div class="register">
-                <label for="InputPassword" class="form-label">Passwort</label>
-                <input type="password" class="form-control" id="InputPassword">
-            </div>
-            <div class="register">
-                <label for="InputPassword2" class="form-label">Passwort bestätigen</label>
-                <input type="password" class="form-control" id="InputPassword2">
-            </div>
-            <button type="submit" class="btn btn-primary">Registrieren</button>
         </fieldset>
+        <div class="form-group-submit">
+            <button class="submit-btn">{{ form.submit(class="btn btn-lg") }}</button>
+        </div>
     </form>
 </div>
 {% endblock content %}

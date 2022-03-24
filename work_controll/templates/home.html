@@ -1,4 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>HOMEPAGE</h1>
+<div class="headline">
+    <h1>Espera. Immer einen Schritt voraus!</h1>
+    <h6>...wenn man am Abgrund steht</h6>
+</div>
+
+<div class="team-pic-aleks">
+    <img src="{{ url_for('static', filename='Duricic.jpg') }}" alt="">
+    <div class="container">
+        <p class="text">Aleksander Duricic</p>
+    </div>
+</div>
+<div class="team-pic-rene">
+    <img src="{{ url_for('static', filename='Gumzej.jpg') }}" alt="">
+    <div class="container">
+        <p class="text">Rene Gumzej</p>
+    </div>
+</div>
+<div class="team-pic-ali">
+    <img src="{{ url_for('static', filename='Inci.jpg') }}" alt="">
+    <div class="container">
+        <p class="text">Ali Inci</p>
+    </div>
+</div>
+<div class="team-pic-andreas">
+    <img src="{{ url_for('static', filename='Krampe.jpg') }}" alt="">
+    <div class="container">
+        <p class="text">Andreas Krampe</p>
+    </div>
+</div>
+<div class="team-pic-markus">
+    <img src="{{ url_for('static', filename='Spiller.jpg') }}" alt="">
+    <div class="container">
+        <p class="text">Markus Spiller</p>
+    </div>
+</div>
 {% endblock content %}
