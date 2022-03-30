@@ -1,9 +1,8 @@
-from flask import render_template, request, url_for, Blueprint, redirect, flash
+from flask import render_template, request, url_for, redirect, flash
 from flask_login import  login_required, login_user, logout_user, current_user
 from . import app, bcrypt, db
-from work_controll.forms import RegisterForm, LoginForm
-from work_controll.models import Department, User
-from sqlalchemy import select, update
+from work_controll.forms import RegisterForm, LoginForm, ResetPasswordForm
+from work_controll.models import User
 
 @app.route('/')
 @app.route('/home')
@@ -25,6 +24,7 @@ def login():
                     return redirect(url_for('register'))
                 else:
                     return redirect(url_for('status'))
+
         else:
             flash(f'Login war nicht erfolgreich. Bitte überprüfe deine Email oder das Passwort', 'danger')
             return redirect(url_for('login'))
@@ -42,6 +42,25 @@ def register():
         return redirect(url_for('register'))
     return render_template('auth/register.html', title="Register", form=form)
 
+@app.route('/reset-password', methods=['GET', 'POST'])
+@login_required
+def reset():
+    form = ResetPasswordForm()
+    if form.is_submitted():
+        new_hashed_pw = bcrypt.generate_password_hash(form.new_password.data)
+        user = db.session.query(User).filter(User.email == form.email.data).first()
+        if user:
+            checked_pw = bcrypt.check_password_hash(new_hashed_pw, form.confirm_new_password.data)
+            if checked_pw:
+                user.password = new_hashed_pw
+                db.session.commit()
+                flash(f'Dein Passwort wurde geändert!', 'succses')
+            else:
+                flash(f'Passwörter stimmen nicht überein!', 'danger')
+        else:
+            flash(f'Bitte kontrolliere deine Email-Adresse!', 'danger')
+    return render_template('auth/reset_password.html', title="reset password", form=form)
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -52,25 +71,3 @@ def logout():
 @login_required
 def status():
     return render_template('status.html', title="Status")
-
-@app.route('/reset-password', methods=['GET', 'POST'])
-@login_required
-def reset():
-    form = RegisterForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user:
-            check_pw = bcrypt.check_password_hash(user.password, form.password.data)
-            if check_pw:
-                new_pw_hash = bcrypt.generate_password_hash(form.new_password.data)
-                db.session.query(User).filter(User.id == user.id).update({User.password: new_pw_hash})
-                db.session.commit()
-            else:
-                flash(f'altes Passwort ist Falsch!')
-                print("altes Passwort ist Falsch")
-            flash(f'Das Passwort wurde erfolgreich geändert')
-            return redirect(url_for('home'))
-        else:
-            flash(f'Es ist ein Fehler unterlaufen. Kontrolliere deine Eingaben')
-            return redirect(url_for('reset'))
-    return render_template('auth/reset_password.html', title="reset password", form=form)

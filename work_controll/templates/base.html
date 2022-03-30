@@ -43,16 +43,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('status') }}">Status</a>
                     </li>
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <li class="dropdown">
+                        <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button">
                             Einstellungen
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="{{ url_for('reset') }}">Passwort
+                            <li><a class="dropdown-item text-dark" href="{{ url_for('reset') }}">Passwort
                                     ändern</a>
                             </li>
                         </ul>
-                    </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                     </li>

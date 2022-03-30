@@ -16,11 +16,8 @@ class RegisterForm(FlaskForm):
     password = PasswordField('Passwort', validators=[DataRequired()])
     confirm_password = PasswordField('Passwort bestätigen',
                                      validators=[DataRequired(), EqualTo('password')])
-    new_password = PasswordField('Neues Passwort', validators=[DataRequired()])
-    confirm_new_password = PasswordField('Neues Passwort bestätigen',
-                                     validators=[DataRequired(), EqualTo('new_password')])
     submit = SubmitField('Registrieren')
-    submit_reset = SubmitField('Passwort ändern')
+    
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -37,3 +34,9 @@ class LoginForm(FlaskForm):
                         validators=[DataRequired(), Email()])
     password = PasswordField('Passwort', validators=[DataRequired()])
     submit = SubmitField('Login')
+
+class ResetPasswordForm(RegisterForm):
+    new_password = PasswordField('Neues Passwort', validators=[DataRequired()])
+    confirm_new_password = PasswordField('Neues Passwort bestätigen',
+                                     validators=[DataRequired(), EqualTo('new_password')])
+    submit_reset = SubmitField('Passwort ändern')
