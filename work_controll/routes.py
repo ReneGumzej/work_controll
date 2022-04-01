@@ -1,8 +1,10 @@
+from distutils.log import Log
 from flask import render_template, request, url_for, redirect, flash
 from flask_login import  login_required, login_user, logout_user, current_user
 from . import app, bcrypt, db
 from work_controll.forms import RegisterForm, LoginForm, ResetPasswordForm
 from work_controll.models import User
+from sqlalchemy import select
 
 @app.route('/')
 @app.route('/home')
@@ -70,4 +72,10 @@ def logout():
 @app.route('/status')
 @login_required
 def status():
-    return render_template('status.html', title="Status")
+    users = []
+    query = 'SELECT username FROM User'
+    result = db.session.execute(query)
+    for u in result:
+        users.append(u[0])   
+    print(users)
+    return render_template('status.html', title="Status", users=users)

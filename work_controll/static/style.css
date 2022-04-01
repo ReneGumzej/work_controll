@@ -128,3 +128,60 @@ div.team-pic-markus{
     text-align: center;
     padding: 10px 20px;
   }
+
+.responsive {
+    float: left;
+    background-color: aqua;
+    padding-bottom: 50px;
+    
+}
+
+.responsive h4{
+    background-color: rgb(24, 139, 24);
+    text-align: center;
+}
+
+.status-container{
+    display: grid;
+    margin-left: 20%;
+    margin-right: 20%;
+    justify-content: center;
+    background-color: bisque;
+}
+
+.btn-container{
+    display: block;
+    padding: 10px;
+    text-align: center;
+    background-color: blueviolet;
+}
+
+.btn-green{
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 10px;
+    padding-inline: 92px;
+    padding-top:20px ;
+    padding-bottom: 20px;
+    
+}
+.btn-red{
+    cursor: pointer;
+    font-size: 20px;
+    padding-inline: 50px;
+    border-radius: 10px;
+    padding-top:20px ;
+    padding-bottom: 20px;
+}
+@media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+@media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }

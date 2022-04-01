@@ -1,4 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Statusanzeige</h1>
-{% endblock content %}
+
+<div class="status-container">
+    <div class="responsive">
+        {% if current_user.username in users %}
+        <h4>{{ current_user.username }}</h4>
+        <div class="btn-container">
+            <button class="btn-green">FREI</button>
+        </div>
+        <div class="btn-container">
+            <button class="btn-red">BESCHÄFTIGT</button>
+        </div>
+        {% endif %}
+    </div>
+    {% endblock content %}
