@@ -5,8 +5,8 @@ from flask_login import LoginManager
 
 
 app = Flask(__name__)
-app.config["SECRET_KEY"]="EsperA3054!" #Secret key ist für Schutz gegen CSRF
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///C:\\Users\\gumzej\\OneDrive - ESPERA-WERKE GmbH\\Dokumente\\vscode\\python\\work_controll\\site.db"
+app.config["SECRET_KEY"]="" #Secret key ist für Schutz gegen CSRF
+app.config['SQLALCHEMY_DATABASE_URI'] = ""
 app.config['SQLALCHEMY_TRACK_MODIFIKATONS'] = False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
