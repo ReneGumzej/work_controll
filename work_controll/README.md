@@ -16,7 +16,6 @@ Es soll eine Appliaktion erstellt werden in der Mitarbeiter den Arbeitsstatus an
 - Jeder Mitarbeiter kann nur seinen eigenen Status steuern 
 - Es soll für jeden Mitarbeiter ein Textfeld zur Verfügung stehen, in der er seine Notizen zum Gespräch einfügen kann. Jede Notiz soll mit einem Zeitstempel versehen werden. 
 
-Bibliotheken Installation: pip install --proxy=http://sophos.espera.de:8080 [Bib-Name]
 
 Datenbank einrichten: 
 - sqlalchemy importieren in vs code
